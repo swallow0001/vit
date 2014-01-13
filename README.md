@@ -1,5 +1,10 @@
 # Visual Inference Tools
 
+(The VIT is distinguish to the original version of vit due to the requirement of iNZight project. We are now going to rewrite the whole package by using gWidgets2 but in the same time optimize the setting of the original ones. So this ones would be kind of a brother of vit.)
+
+It is now taking in charge by Junjie Zeng.
+
+(The following is the introduction of vit.)
 Traditional methods of teaching statistical inference rely on concepts such as probability distributions that are unfamiliar to students. This may overwhelm a student's cognitive load and hinder understanding. These tools simplify the intuition behind inference to a visual level. They can be used to develop a student's intuitions about inference before teaching mathematical and probabilistic concepts.
 
 The code has been developed by Danny Chang, Vivian Li, Garrett Grolemund and Ben Stevenson. 
