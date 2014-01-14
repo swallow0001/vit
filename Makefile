@@ -7,7 +7,7 @@ MAN_FILES := $(wildcard man/*.Rd)
 R_FILES := $(wildcard R/*.R)
 PKG_FILES := DESCRIPTION NAMESPACE $(R_FILES) $(MAN_FILES) $(INST_FILES)
 
-.PHONY: build check install run win release clean 
+.PHONY: build check install run win release clean
 
 build: $(PKG_NAME)_$(PKG_VERSION)-$(CURRENT_DATE).tar.gz
 

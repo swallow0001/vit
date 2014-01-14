@@ -148,17 +148,17 @@ iNZightVIT <- function(disposeR = TRUE) {
                                         grid.raster(iNZight.splash, width = unit(3.5, "inches"), height = unit(2, "inches"))
                                     }
                                     suppressPackageStartupMessages({
-                                        suppressWarnings(library(iNZightRef))
+                                        suppressWarnings(library(iNZight))
                                     })
                                     if (lib.png)
                                         dev.off()
                                     e$disposeR <- FALSE
-                                    library(iNZight)
+                                   # library(iNZight)
                                     detach("package:gWidgetsRGtk2")
-                                    detach("package:iNZight")
+                                   # detach("package:iNZight")
                                     detach("package:gWidgets")
                                     #print(search())
-                                    iNZightRef::iNZight()
+                                    iNZight()
                                     dispose(home)
                                 } else {
                                     gmessage("You must install the iNZight package to run iNZight.",
