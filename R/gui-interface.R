@@ -153,11 +153,8 @@ iNZightVIT <- function(disposeR = TRUE) {
                                     if (lib.png)
                                         dev.off()
                                     e$disposeR <- FALSE
-                                   # library(iNZight)
                                     detach("package:gWidgetsRGtk2")
-                                   # detach("package:iNZight")
                                     detach("package:gWidgets")
-                                    #print(search())
                                     iNZight()
                                     dispose(home)
                                 } else {
