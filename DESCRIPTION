@@ -1,8 +1,6 @@
 Package: vit
-Depends: R (>= 2.13)
-Imports: methods, grid, gWidgets, RGtk2, gWidgetsRGtk2, plyr, RODBC
-Suggests: Acinonyx, png
-License: GPL
+License: GPL-2
+Version: 1.2
 Title: Visual Inference Tools
 LazyData: true
 Type: Package
@@ -22,7 +20,9 @@ Description: Traditional methods of teaching statistical inference
     develop a student's intuitions about inference before teaching
     mathematical and probabilistic concepts.
 Enhances: iNZight
-Version: 0.1.0
+Depends: R (>= 2.13)
+Imports: methods, grid, gWidgets, RGtk2, gWidgetsRGtk2, plyr, RODBC
+Suggests: Acinonyx, png
 Collate:
     'canvas-refclass.R'
     'canvas-viewports.R'
