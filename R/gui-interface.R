@@ -155,7 +155,7 @@ iNZightVIT <- function(disposeR = TRUE) {
                                     e$disposeR <- FALSE
                                     detach("package:gWidgetsRGtk2")
                                     detach("package:gWidgets")
-                                    iNZight()
+                                    suppressWarnings(iNZight())
                                     dispose(home)
                                 } else {
                                     gmessage("You must install the iNZight package to run iNZight.",
