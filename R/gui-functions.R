@@ -32,7 +32,7 @@ setupGUI <- function(e){
                                      handler = function(...) {
                          dispose(e$win)
                          dispose(e$window)
-                         dev.off()
+                         try(dev.off())
                          e$homefun()
                      })})
 
