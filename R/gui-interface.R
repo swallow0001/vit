@@ -169,7 +169,8 @@ iNZightVIT <- function(disposeR = TRUE) {
 
     vit.group <- ggroup(horizontal = FALSE, container = group)
 
-    datestamp <- strsplit(packageDescription("vit")$Version, "-")[[1]][2]
+  #  datestamp <- strsplit(packageDescription("vit")$Version, "-")[[1]][2]
+    datestamp <- packageDescription("vit")$Version
     vit.frame.title <- paste("Visual Inference Tools", " (v", datestamp, ")", sep = "")
     vit.frame <- gframe(vit.frame.title, container = vit.group, horizontal = FALSE)
     vit.banner <- gimage(system.file("images/vit-banner.png", package = "vit"),
