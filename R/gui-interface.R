@@ -120,7 +120,8 @@ iNZightVIT <- function(disposeR = TRUE) {
 
     have.inzight <- "iNZight" %in% rownames(installed.packages())
     if (have.inzight) {
-        datestamp <- strsplit(packageDescription("iNZight")$Version, "-")[[1]][2]
+       # datestamp <- strsplit(packageDescription("iNZight")$Version, "-")[[1]][2]
+        datestamp <- packageDescription("iNZight")$Version
         inz.frame.title <- paste("iNZight", " (v", datestamp, ")", sep = "")
     } else {
         inz.frame.title <- "iNZight (not installed)"
