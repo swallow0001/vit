@@ -41,7 +41,11 @@ newdevice <- function(width, height, ...) {
 
 ## Brings up homepage which allows the user to either run iNZight or VIT.
 
-iNZightVIT <- function(disposeR = TRUE) {
+iNZightVIT <- function(disposeR = FALSE) {
+  # With `disposeR`, we only want to set this to TRUE if they user
+  # opens via the icon in the standalone version, OR if they explicitly
+  # say so when they open the software from within R manually.
+    
     e <- new.vit.env()
     e$disposeR <- disposeR
     e$homefun <- iNZightVIT

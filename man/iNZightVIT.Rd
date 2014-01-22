@@ -8,12 +8,12 @@ Visual Inference Tools and iNZight Home
 The home screens for VIT and iNZightVIT
 }
 \usage{
-iNZightVIT(disposeR = TRUE)
+iNZightVIT(disposeR = FALSE)
 }
 \arguments{
   \item{disposeR}{
     This argument determines whether R is to be quit when the VIT GUI windows are closed.
-    This argument should not be specified by a user, it should only be called by an external
+    This argument should not be specified by a user; it should only be called by an external
     function such as iNZight.
   }
 }
