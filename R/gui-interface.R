@@ -20,6 +20,21 @@
   packageStartupMessage("")
   packageStartupMessage(parwrap("iNZightVIT()"))
   packageStartupMessage("")
+  
+# If using Mac, need to inform them that it is going to be SLOW!
+  if (.Platform$OS.type != "windows" && Sys.info()["sysname"] == "Darwin") {
+      packageStartupMessage(parwrap(paste("Unfortunately, the packages used",
+                                          "by iNZight take a while to load on",
+                                          "Mac OS X. Please be patient while",
+                                          "the software loads. You can also ignore",
+                                          "any error/warning messages that show up",
+                                          "below.")))
+      packageStartupMessage("")
+      packageStartupMessage(parwrap(paste("Check behind this window to make sure",
+                                          "iNZightVIT hasn't loaded behind it!")))
+      packageStartupMessage("")
+  }
+  
   packageStartupMessage(header)
 }
 
