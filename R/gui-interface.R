@@ -23,9 +23,7 @@
   
 # If using Mac, need to inform them that it is going to be SLOW!
   if (.Platform$OS.type != "windows" && Sys.info()["sysname"] == "Darwin") {
-      packageStartupMessage(parwrap(paste("Unfortunately, the packages used",
-                                          "by iNZight take a while to load on",
-                                          "Mac OS X. Please be patient while",
+      packageStartupMessage(parwrap(paste("Please be patient while",
                                           "the software loads. You can also ignore",
                                           "any error/warning messages that show up",
                                           "below.")))
@@ -38,11 +36,26 @@
   packageStartupMessage(header)
 }
 
-newdevice <- function(width, height, ...) {
+newdevice <- function(width, height,
+                      useAcinonyx = "Acinonyx" %in% rownames(installed.packages()),
+                      ...) {
     # The windows device works fine (for now), only attempt to speed up
     # any other devices that we're going to be using.
     # We speed them up by getting rid of bufferring.
-    if ("Acinonyx" %in% rownames(installed.packages())) {
+    if (useAcinonyx) {
+      # Because of build issues with Acinonyx, it does not work on OS X 10.8,
+      # although the iNZight module works fine (VIT lags too much).
+        ac <- try(library(Acinonyx), silent = TRUE)
+        if (inherits(ac, "try-error")) {
+            message(paste("Unfortunately, the package used for drawing plots in",
+                          "iNZightVIT is incompatible with your system. While you",
+                          "can still use VIT, you may experience some serious",
+                          "animation issues. We suggest you download",
+                          "our our iNZightVIT module for older Mac operating systems:"))
+            message("https://www.stat.auckland.ac.nz/~wild/iNZight/mac.html")
+            newdevice(width, height, useAcinonyx = FALSE)
+        }
+        
         # Acinonyx uses pixels rather than inches, convert inches to
         # pixels to determine dims. Assume 90 dpi.
         width.in <- round(width * 90)
