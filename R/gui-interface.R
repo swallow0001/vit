@@ -47,12 +47,13 @@ newdevice <- function(width, height,
       # although the iNZight module works fine (VIT lags too much).
         ac <- suppressWarnings(try(library(Acinonyx), silent = TRUE))
         if (inherits(ac, "try-error")) {
-            gmessage(paste("Unfortunately, the package used for drawing plots in",
+            gmessage(paste("Unfortunately, the package used for animation in",
                            "iNZightVIT is incompatible with your system. While you",
                            "can still use VIT, you may experience some serious",
                            "animation issues. We suggest you download",
-                           "our our iNZightVIT module for older Mac operating systems:\n",
-                           "https://www.stat.auckland.ac.nz/~wild/iNZight/mac.html"))
+                           "our iNZightVIT module for older Mac operating systems:\n\n",
+                           "https://www.stat.auckland.ac.nz/~wild/iNZight/mac.html"),
+                     title = "VIT Animation Compatiblity Issue")
             newdevice(width, height, useAcinonyx = FALSE)
         } else {
           # Acinonyx uses pixels rather than inches, convert inches to
