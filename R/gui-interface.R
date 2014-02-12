@@ -45,7 +45,7 @@ newdevice <- function(width, height,
     if (useAcinonyx) {
       # Because of build issues with Acinonyx, it does not work on OS X 10.8,
       # although the iNZight module works fine (VIT lags too much).
-        ac <- try(library(Acinonyx), silent = TRUE)
+        ac <- suppressWarnings(try(library(Acinonyx), silent = TRUE))
         if (inherits(ac, "try-error")) {
             message(paste("Unfortunately, the package used for drawing plots in",
                           "iNZightVIT is incompatible with your system. While you",
@@ -54,13 +54,13 @@ newdevice <- function(width, height,
                           "our our iNZightVIT module for older Mac operating systems:"))
             message("https://www.stat.auckland.ac.nz/~wild/iNZight/mac.html")
             newdevice(width, height, useAcinonyx = FALSE)
+        } else {
+          # Acinonyx uses pixels rather than inches, convert inches to
+          # pixels to determine dims. Assume 90 dpi.
+            width.in <- round(width * 90)
+            height.in <- round(height * 90)
+            Acinonyx::idev(width = width.in, height = height.in)
         }
-        
-        # Acinonyx uses pixels rather than inches, convert inches to
-        # pixels to determine dims. Assume 90 dpi.
-        width.in <- round(width * 90)
-        height.in <- round(height * 90)
-        Acinonyx::idev(width = width.in, height = height.in)
     } else {
         if (.Platform$OS.type != "windows" && Sys.info()["sysname"] != "Darwin")
             dev.new(width = width, height = height, type = "nbcairo", ...)
