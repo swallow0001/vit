@@ -234,10 +234,12 @@ new.vit.env <- function() {
             } else if (ext %in% c("txt", "csv")) {
                 if (ext == "txt")
                     out <- try(read.table(theFile, header = TRUE, sep = "\t",
+                                          comment.char = "#",
                                           na.strings = c("NULL", "NA", "N/A", "#N/A", "", "<NA>"),
                                           check.names = TRUE))
                 else
                     out <- try(read.csv(theFile, header = TRUE,
+                                        comment.char = "#",
                                         na.strings = c("NULL", "NA", "N/A", "#N/A", "", "<NA>"),
                                         check.names = TRUE))
                 if (inherits(out, "try-error")) {
