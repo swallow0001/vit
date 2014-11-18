@@ -1,5 +1,5 @@
-\name{NEWS}
-\title{NEWS file for the vit package}
+\name{Change Log}
+\title{Change Log for vit}
 \encoding{UTF-8}
 
 \section{Changes in version 1.2.1}{
